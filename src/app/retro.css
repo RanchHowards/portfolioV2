@@ -1,0 +1,160 @@
+.retro {
+  --dos-teal: #00aaaa;
+  --dos-blue: #0000aa;
+  --dos-gray: #aaaaaa;
+  --dos-yellow: #ffff55;
+  --dos-cyan: #55ffff;
+  --dos-red: #aa0000;
+  background: #000;
+  color: #000;
+}
+
+.retro ::selection {
+  background: var(--dos-yellow);
+  color: #000;
+}
+
+/* Keep page content above the starfield canvas */
+.retro main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Window: solid color, thin light outline, hard offset shadow */
+.dos-window {
+  position: relative;
+  padding: 6px;
+  outline: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 22px 22px 0 #000;
+}
+
+.dos-frame {
+  position: relative;
+  padding: 1.75rem 1rem 1rem;
+  border: 4px double currentColor;
+}
+
+.dos-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 0 0.6rem;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dos-teal {
+  background: var(--dos-teal);
+  color: #000;
+}
+
+.dos-blue {
+  background: var(--dos-blue);
+  color: #fff;
+}
+
+.dos-gray {
+  background: var(--dos-gray);
+  color: #000;
+}
+
+.dos-blue .dos-frame {
+  border-color: var(--dos-cyan);
+}
+
+.retro a:not(.dos-btn):not(header a):not(footer a) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Button with a hard shadow that it slides into when pressed */
+.dos-btn {
+  display: inline-block;
+  padding: 0.15rem 1.25rem;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 7px 7px 0 #000;
+  transition: transform 0.06s, box-shadow 0.06s;
+}
+
+.dos-btn:hover {
+  filter: brightness(1.08);
+}
+
+.dos-btn:active {
+  transform: translate(7px, 7px);
+  box-shadow: 0 0 0 #000;
+}
+
+.dos-btn:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: -5px;
+}
+
+.dos-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.05em;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background: var(--dos-yellow);
+  animation: dos-blink 1s steps(1) infinite;
+}
+
+@keyframes dos-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Windows pop open in steps instead of fading smoothly */
+.retro .reveal {
+  transform: scale(0.85);
+  transition:
+    opacity 0.25s steps(4),
+    transform 0.25s steps(4);
+}
+
+.retro .reveal.is-visible {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dos-cursor {
+    animation: none;
+  }
+  .retro .reveal {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Star settings panel: a smaller shadow than the page windows */
+.star-panel.dos-window {
+  box-shadow: 12px 12px 0 #000;
+}
+
+.dos-slider:focus-within {
+  outline: 2px dashed #000;
+  outline-offset: 2px;
+}
+
+/* "[+] N more" / "[-] N more" toggle for long job histories */
+.dos-more > summary {
+  list-style: none;
+}
+
+.dos-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dos-more > summary::before {
+  content: "[+] ";
+}
+
+.dos-more[open] > summary::before {
+  content: "[-] ";
+}
