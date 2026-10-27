@@ -98,7 +98,8 @@ export function StarSky() {
     <>
       <Starfield settings={settings} />
 
-      <div className="fixed right-4 bottom-12 z-50 flex flex-col items-end gap-8">
+      {/* Hidden on phones, where it would cover most of the screen */}
+      <div className="fixed right-4 bottom-12 z-50 hidden flex-col items-end gap-8 md:flex">
         <div className="w-[min(18.5rem,calc(100vw-2rem))]">
           <Window title="STARS.CFG" tone="gray" className="star-panel">
             <div className="space-y-2 pt-1 text-sm">
