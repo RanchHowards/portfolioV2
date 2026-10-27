@@ -44,15 +44,31 @@ export default function Home() {
               </h1>
               <p className="mt-3 text-xl text-white sm:text-2xl">{site.role}</p>
               <p className="mt-1 text-[var(--dos-cyan)]">{site.location}</p>
-              <p className="mt-6 max-w-xl leading-relaxed">
-                {site.tagline}
-                <span className="dos-cursor" aria-hidden />
-              </p>
-              <div className="mt-10 flex flex-wrap gap-5">
-                <DosButton href="#experience" primary>
-                  View Experience
-                </DosButton>
-                <DosButton href="#contact">Contact Me</DosButton>
+              <div className="mt-6 flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <p className="max-w-xl leading-relaxed">
+                    {site.tagline}
+                    <span className="dos-cursor" aria-hidden />
+                  </p>
+                  <div className="mt-10 flex flex-wrap gap-5">
+                    <DosButton href="#experience" primary>
+                      View Experience
+                    </DosButton>
+                    <DosButton href="#contact">Contact Me</DosButton>
+                  </div>
+                </div>
+                <figure className="shrink-0 self-center md:self-start">
+                  {/* 128px source shown at exactly 2x so the pixels stay crisp and square */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={site.photo.src}
+                    alt={site.photo.alt}
+                    width={256}
+                    height={256}
+                    className="pixel-photo"
+                  />
+                  <figcaption className="mt-3 text-center text-xs text-[var(--dos-cyan)]">PHOTO.BMP · 128×128 · 4 shades</figcaption>
+                </figure>
               </div>
             </div>
           </Window>

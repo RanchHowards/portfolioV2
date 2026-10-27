@@ -158,3 +158,11 @@
 .dos-more[open] > summary::before {
   content: "[-] ";
 }
+
+/* Pixel-art portrait: keep pixels crisp, frame it like the windows */
+.pixel-photo {
+  display: block;
+  image-rendering: pixelated;
+  border: 4px solid #fff;
+  box-shadow: 12px 12px 0 #000;
+}

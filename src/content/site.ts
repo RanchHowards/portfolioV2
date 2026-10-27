@@ -28,6 +28,7 @@ export const site = {
   tagline:
     "I embed with business teams to turn operational pain points into production software: cloud-native, event-driven, and increasingly AI-powered.",
   location: "Berlin, Germany",
+  photo: { src: "/graham-pixel.png", alt: "Pixel-art portrait of Graham McCarthy" },
 
   about: [
     "I'm a Forward Deployed Engineer with 5+ years of experience building cloud-native, event-driven systems on AWS with TypeScript, Node.js, and React.",
